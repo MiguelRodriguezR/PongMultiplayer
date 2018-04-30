@@ -1,0 +1,27 @@
+{
+  "name": "pongmultiplayer",
+  "version": "1.0.0",
+  "description": "pong made with node js and socket io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelRodriguezR/pongMultiplayer.git"
+  },
+  "author": "Miguel Rodriguez",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MiguelRodriguezR/pongMultiplayer/issues"
+  },
+  "homepage": "https://github.com/MiguelRodriguezR/pongMultiplayer#readme",
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
+}
