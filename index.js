@@ -28,11 +28,13 @@ io.on('connection', (socket) => {
       playerNames[username] = username;
       numPlayers++;
     }
-    console.log("players : "+numPlayers);
-    console.log("viwers : "+numViewer);
+    console.log("players : "+JSON.stringify(playerNames));
+    console.log("viwers : "+JSON.stringify(viewerNames));
     socket.emit('login', {
-      numPlayers: numPlayers,
-      numViewer: numViewer
+      numPlayers,
+      numViewer,
+      playerNames,
+      viewerNames
     });
   });
 

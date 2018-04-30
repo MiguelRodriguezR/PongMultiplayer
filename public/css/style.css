@@ -33,3 +33,11 @@ button{
   cursor: pointer;
 
 }
+.game{
+  display: grid;
+  margin: 0;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+.game div{
+  background-color: #999999;
+}
