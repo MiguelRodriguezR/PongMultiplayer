@@ -20,6 +20,11 @@ var viewerNames ={};
 io.on('connection', (socket) => {
 
   socket.on('add user', (username) => {
+    if(playerNames.hasOwnProperty(username) |
+    viewerNames.hasOwnProperty(username)){
+      socket.emit('exist', "e");
+      return;
+    }
     socket.username = username;
     if(numPlayers>=2){
       viewerNames[username] = username;
@@ -29,6 +34,22 @@ io.on('connection', (socket) => {
       playerNames[username] = username;
       numPlayers++;
     }
+    console.log("players : "+JSON.stringify(playerNames));
+    console.log("viwers : "+JSON.stringify(viewerNames));
+    socket.broadcast.emit('login new', {
+      numPlayers,
+      numViewer,
+      playerNames,
+      viewerNames,
+
+    });
+    socket.emit('login', {
+      numPlayers,
+      numViewer,
+      playerNames,
+      viewerNames,
+      readyStatus
+    });
     if(numPlayers==2){
       if(readyStatus==0){
         console.log("entro");
@@ -41,20 +62,29 @@ io.on('connection', (socket) => {
         readyStatus = 1;
       }
     }
-    console.log("players : "+JSON.stringify(playerNames));
-    console.log("viwers : "+JSON.stringify(viewerNames));
-    socket.broadcast.emit('login', {
-      numPlayers,
-      numViewer,
-      playerNames,
-      viewerNames
-    });
-    socket.emit('login', {
-      numPlayers,
-      numViewer,
-      playerNames,
-      viewerNames
-    });
   });
 
+  socket.on('disconnect', () => {
+    if (playerNames.hasOwnProperty(socket.username)) {
+      --numPlayers;
+      console.log(socket.username+" has left...");
+      delete playerNames[socket.username];
+      socket.broadcast.emit('player left', {
+        left:socket.username,
+        playerNames,
+        viewerNames
+      });
+      readyStatus = 0;
+    }
+    else if(viewerNames.hasOwnProperty(socket.username)){
+      --numViewer;
+      console.log(socket.username+" has left...");
+      delete viewerNames[socket.username];
+      socket.broadcast.emit('viewer left', {
+        left:socket.username,
+        playerNames,
+        viewerNames
+      });
+    }
+  });
 });

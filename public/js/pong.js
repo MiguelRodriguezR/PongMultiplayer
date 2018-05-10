@@ -14,14 +14,8 @@ function displayPlayerview(){
     ctx.font = "10px Arial";
     ctx.fillText("Esperando Jugadores",canvas.width/3,canvas.height/2);
   ctx.restore();
-  // ctx.beginPath();
-  // ctx.moveTo(0,0);
-  // ctx.lineTo(canvas.width,canvas.height);
-  // ctx.stroke();
   canvas.style.width ='100%';
   canvas.style.height='100%';
-  // canvas.width  = canvas.offsetWidth;
-  // canvas.height = canvas.offsetHeight;
 }
 
 function updatePlayersViewers(){
@@ -38,18 +32,7 @@ function updatePlayersViewers(){
   document.querySelector('#viewers').innerHTML+="</ul>";
 }
 
-socket.on('ready', function (data) {
-  document.querySelector('#game').style.height="100vh";
-  document.querySelector('#game').innerHTML=
-  '<div id="viewers"></div>'+
-  '<canvas id="canvas"></canvas>'+
-  '<div id="players"></div>';
-  canvas = document.querySelector('#canvas');
-  ctx = canvas.getContext('2d');
-  canvas.style.width ='100%';
-  canvas.style.height='100%';
-  game = new Game(username,canvas,ctx);
-});
+
 
 class Game{
   constructor(user,canvas,ctx){
