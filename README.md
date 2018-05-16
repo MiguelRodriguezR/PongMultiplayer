@@ -1,9 +1,6 @@
 # pongMultiplayer
 pong made with node js and socket.io
 
-[![Linux Build][travis-image]][travis-url]
-[![Windows Build][appveyor-image]][appveyor-url]
-
 <br><img src="images/SS1.jpg" alt="planning picture" />
 <br><img src="images/SS2.jpg" alt="planning picture" />
 
