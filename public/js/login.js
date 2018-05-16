@@ -4,7 +4,7 @@ var connected = false;
 var players ="";
 var viewers = "";
 function registrarNuevo(){
-  username = document.querySelector('input').value;
+  username = document.querySelector('input').value.toUpperCase();
   socket.emit('add user', username);
   // displayPlayerview();
 }
@@ -49,6 +49,7 @@ socket.on('player left',function (data) {
     canvas = document.querySelector('#canvas');
     ctx = canvas.getContext('2d');
     ctx.save();
+      ctx.fillStyle="white";
       ctx.font = "10px Arial";
       // console.log(data);
       ctx.fillText("Jugador: "+data.left+" se ha ido",canvas.width/3,canvas.height/2);

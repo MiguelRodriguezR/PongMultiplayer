@@ -8,13 +8,22 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <header>
+    <p>pong clasico con sockets - Miguel Angel Rodriguez - 2018</p>
+  </header>
   <section class="principal" id="principal">
+    <p>
+      controles:
+      <img src="img/up.png" alt="">
+      <img src="img/down.png" alt="">
+    </p>
     <h1>Ingrese su Nombre</h1>
     <input type="text" name="" value="" placeholder="Nombre">
     <button type="button" name="button" onclick="registrarNuevo()">Jugar !</button>
   </section>
   <section class="game" id="game">
   </section>
+
 </body>
   <script src="./socket.io/socket.io.js"></script>
   <script src="./js/login.js"></script>

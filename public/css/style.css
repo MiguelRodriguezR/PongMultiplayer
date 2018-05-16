@@ -1,3 +1,19 @@
+@font-face {
+    font-family: pstart;
+    src: url(../fonts/press-start/pstart.ttf);
+}
+
+body{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+
+body *{
+  font-family: pstart;
+}
+
 .principal{
   background-color: #111111;
   display: flex;
@@ -7,11 +23,32 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  /* font-family: pstart; */
   font-size: 2em;
   height: 100vh;
   color: #AAAAAA;
 }
+
+.principal p{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+img{
+  width: 50px;
+}
+
+.principal h1{
+  margin: 30px;
+  text-align: center;
+  font-size: 3em;
+  text-decoration: overline underline;
+}
+
 input{
   background-color: transparent;
   font-size: 2em;
@@ -34,10 +71,48 @@ button{
 
 }
 .game{
+  background-color:  #111111;
   display: grid;
   margin: 0;
   grid-template-columns: 1fr 5fr 1fr;
 }
+
 .game div{
-  background-color: #999999;
+  color: white;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:  #111111;
+}
+
+/* .game canvas{
+  margin: 25px;
+  border: solid 1px;
+  border-color: white;
+} */
+
+.game div *{
+  text-align: center;
+}
+#players{
+  border-left: solid;
+  border-color: white;
+}
+#viewers{
+  border-right: solid;
+  border-color: white;
+}
+
+header{
+  width: 100%;
+  font-size: 0.8em;
+  color: white;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 0.5;
 }

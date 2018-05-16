@@ -11,6 +11,7 @@ function displayPlayerview(){
   canvas = document.querySelector('#canvas');
   ctx = canvas.getContext('2d');
   ctx.save();
+    this.ctx.fillStyle="white";
     ctx.font = "10px Arial";
     ctx.fillText("Esperando Jugadores",canvas.width/3,canvas.height/2);
   ctx.restore();
@@ -82,7 +83,7 @@ class Game{
       this.ctx.font = "10px Arial";
       this.ctx.fillText(""+this.scoreP1,this.canvas.width*0.1,this.canvas.height*0.1);
       this.ctx.fillText(""+this.scoreP2,this.canvas.width*0.9,this.canvas.height*0.1);
-      this.ctx.fillText(""+players[Object.keys(players)[1]],this.canvas.width*0.1,this.canvas.height*0.95);
+      this.ctx.fillText(""+players[Object.keys(players)[1]],this.canvas.width*0.2,this.canvas.height*0.95);
       this.ctx.fillText(""+players[Object.keys(players)[0]],this.canvas.width*0.7,this.canvas.height*0.95);
       // this.ctx.arc(this.canvas.width*this.ballX, this.canvas.height*this.ballY, this.canvas.height*0.01, 0, 2 * Math.PI);
       // this.ctx.fill();
